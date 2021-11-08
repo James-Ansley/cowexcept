@@ -5,12 +5,12 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='cowexcept',
-    version='0.1.dev1',
+    version='1.0',
     author='James Finnie-Ansley',
     description='Spice up those exceptions with cowexcept!',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='',
+    url='https://github.com/James-Ansley/cowexcept',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Topic :: Utilities',
