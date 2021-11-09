@@ -8,8 +8,8 @@ Spice up those exceptions with cowexcept!
          \   ^__^
           \  (oo)\_______
              (__)\       )\/\
-               ||----w |
-               ||     ||
+                 ||----w |
+                 ||     ||
     
 ## Install
 
@@ -39,5 +39,5 @@ All you have to do to get started is `import cowexcept` and then any exceptions 
          \   ^__^
           \  (oo)\_______
              (__)\       )\/\
-               ||----w |
-               ||     ||
+                 ||----w |
+                 ||     ||
