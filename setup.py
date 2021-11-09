@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='cowexcept',
-    version='1.0',
+    version='1.2',
     author='James Finnie-Ansley',
     description='Spice up those exceptions with cowexcept!',
     long_description=long_description,
