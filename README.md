@@ -13,7 +13,7 @@ Spice up those exceptions with cowexcept!
     
 ## Install
 
-    $ pip install cowexcept
+    pip install cowexcept
 
 
 ## Should you install this?
