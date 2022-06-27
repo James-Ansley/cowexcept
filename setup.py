@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='cowexcept',
-    version='1.2.3',
+    version='1.3.0',
     author='James Finnie-Ansley',
     description='Spice up those exceptions with cowexcept!',
     long_description=long_description,
@@ -23,8 +23,8 @@ setuptools.setup(
         where='src',
     ),
     package_dir={'': 'src'},
-    python_requires='>=3.8',
+    python_requires='>=3.10',
     install_requires=[
-        'python-cowsay',
+        'python-cowsay~=1.0.1',
     ],
 )
