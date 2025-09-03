@@ -1,1 +1,1 @@
-python-cowsay>=1.1.1
+python-cowsay>=1.2.2
