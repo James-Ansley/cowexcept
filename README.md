@@ -1,5 +1,9 @@
 # CowExcept
 
+[![Repository](https://img.shields.io/badge/jamesansley%2Fcowexcept-102335?logo=codeberg&labelColor=07121A)](https://codeberg.org/jamesansley/cowexcept)
+[![PyPi](https://img.shields.io/pypi/v/cowexcept?label=PyPi&labelColor=%23ffd343&color=%230073b7)](https://pypi.org/project/cowexcept/)
+[![License](https://img.shields.io/badge/Apache--2.0-002d00?label=license)](https://codeberg.org/jamesansley/cowexcept/src/branch/main/LICENSE)
+
 Spice up those exceptions with cowexcept!
 
      ______________________________________ 

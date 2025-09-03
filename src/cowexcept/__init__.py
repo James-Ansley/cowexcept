@@ -1,3 +1,18 @@
+# Copyright 2025 cowexcept contributors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 import sys
 from contextlib import redirect_stderr
 from io import StringIO
@@ -9,20 +24,16 @@ __all__ = ["activate", "deactivate", "set_cow", "set_cow_from_file"]
 
 _cow = cowsay.get_cow("default")
 
-EXCEPT_HOOK = sys.excepthook
-
 
 def _cowsay_except(type, value, tracebac):
     error = StringIO()
     with redirect_stderr(error):
-        EXCEPT_HOOK(type, value, tracebac)
+        sys.__excepthook__(type, value, tracebac)
     cow = cowsay.cowsay(error.getvalue(), cowfile=_cow, wrap_text=False)
     print(cow, file=sys.stderr)
 
 
 def activate():
-    global EXCEPT_HOOK
-    EXCEPT_HOOK = sys.excepthook
     sys.excepthook = _cowsay_except
 
 
