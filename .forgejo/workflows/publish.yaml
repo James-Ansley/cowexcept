@@ -1,0 +1,26 @@
+name: "Publish"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: "codeberg-tiny-lazy"
+    steps:
+      - name: "Setup Python"
+        uses: "actions/setup-python@v6"
+        with:
+          python-version: "3.13"
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+      - name: "Install build tools"
+        run: "pip install --no-input --progress-bar off -q twine build"
+      - name: "Build"
+        run: "python -m build"
+      - name: "Upload"
+        run: "twine upload dist/* --non-interactive --disable-progress-bar"
+        env:
+          TWINE_USERNAME: "${{ secrets.TWINE_USERNAME }}"
+          TWINE_PASSWORD: "${{ secrets.TWINE_PASSWORD }}"
