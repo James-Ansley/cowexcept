@@ -39,15 +39,31 @@ exceptions whenceforth will be in beautiful cowsay format:
                     ||----w |
                     ||     ||
 
-The `cowexcept.activate()` call is to avoid unused import flags from IDEs or
-style checkers and avoiding any import-time side effects. If unused imports and
-import-time side effects do not bother you, and you would prefer to avoid the
-horrible extra line used to explicitly activate `cowexcept`,
-use `import cowexcept.auto` instead and this will activate `cowexcept` on
-import.
+If no cow or cow file is specified, cows are chosen at random (from `cowsay -l`
+from the [`python-cowsay`](https://codeberg.org/jamesansley/cowsay) package).
+When activating `cowexcept`, a cow name can be provided to set the cow for all
+exceptions:
+
+    >>> import cowexcept
+    >>> cowexcept.activate("elephant-in-snake")
+    >>> 1 / 0
+     _____________________________________
+    / Traceback (most recent call last):  \
+    |   File "...", line 1, in ...        |
+    |     1 / 0                           |
+    |     ~~^~~                           |
+    \ ZeroDivisionError: division by zero /
+     -------------------------------------
+       \
+        \              ....       
+               ........    .      
+              .            .      
+             .             .      
+    .........              .......
+    ..............................
 
 To deactivate `cowexcept` call `cowexcept.deactivate()` and any exceptions will
-be handled as before.
+be handled with Python's default exception handler.
 
 ### Using Your Own Cows
 
@@ -66,6 +82,7 @@ cow to be displayed in exceptions.
     / Traceback (most recent call last):  \
     |   File "...", line 1, in ...        |
     |     1 / 0                           |
+    |     ~~^~~                           |
     \ ZeroDivisionError: division by zero /
      -------------------------------------
                            \                    ^    /^
@@ -107,6 +124,7 @@ the `set_cow_from_file` function:
     / Traceback (most recent call last):  \
     |   File "...", line 1, in ...        |
     |     1 / 0                           |
+    |     ~~^~~                           |
     \ ZeroDivisionError: division by zero /
      -------------------------------------
              \

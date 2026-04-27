@@ -1,4 +1,4 @@
-# Copyright 2025 cowexcept contributors
+# Copyright 2026 cowexcept contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,8 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-
+import random
 import sys
 from contextlib import redirect_stderr
 from io import StringIO
@@ -22,22 +21,37 @@ import cowsay
 
 __all__ = ["activate", "deactivate", "set_cow", "set_cow_from_file"]
 
-_cow = cowsay.get_cow("default")
+_cow = None
 
 
 def _cowsay_except(type, value, tracebac):
     error = StringIO()
     with redirect_stderr(error):
         sys.__excepthook__(type, value, tracebac)
-    cow = cowsay.cowsay(error.getvalue(), cowfile=_cow, wrap_text=False)
+    if _cow is None:
+        cow = cowsay.cowsay(
+            error.getvalue(),
+            cow=random.choice(cowsay.list_cows()),
+            wrap_text=False,
+        )
+    else:
+        cow = cowsay.cowsay(error.getvalue(), cowfile=_cow, wrap_text=False)
     print(cow, file=sys.stderr)
 
 
-def activate():
+def activate(cow: str = None):
+    """
+    Changes the system excepthook to display exceptions in cowsay format
+    :param cow: An optional cow name to set the cow to. By default, cows are
+        selected at random for each exception.
+    """
     sys.excepthook = _cowsay_except
+    if cow is not None:
+        set_cow(cow)
 
 
 def deactivate():
+    """Restores the default system excepthook—disabling cowexcept behaviour"""
     sys.excepthook = sys.__excepthook__
 
 
