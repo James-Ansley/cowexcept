@@ -9,4 +9,4 @@ issue for it first so the community has time to discuss the proposed feature.
 ## Note
 
 The [GitHub](https://github.com/James-Ansley/cowexcept) version of this library
-is a push mirror. Any pull requests submitted on GitHub will be closed.
+is a push mirror and does not accept issues or pull requests.
