@@ -11,11 +11,7 @@ requires-python = ">=3.8"
 license = "Apache-2.0"
 keywords = ["cowsay"]
 authors = [{ name = "James Finnie-Ansley" }]
-dynamic = ["dependencies"]
+dependencies = ["python-cowsay>=1.2.2"]
 
 [project.urls]
 repository = "https://codeberg.org/jamesansley/cowexcept"
-
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.txt"] }
-
